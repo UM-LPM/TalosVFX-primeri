@@ -68,6 +68,13 @@ public class AstronautsGame extends ApplicationAdapter {
 	private boolean gameEnd = false;
 	private Rectangle lastAsteroid;
 
+	private float rotation;
+	private float rotDirection;
+
+	private float timer;
+	private float rocketDirection;
+	private boolean rocketReturn;
+
 	//Values are set experimental
 	private static int SPEED = 600; // pixels per second
 	private static int SPEED_ASTRONAUT = 200; // pixels per second
@@ -112,6 +119,14 @@ public class AstronautsGame extends ApplicationAdapter {
 		font.getData().setScale(2);
 		astronautsRescuedScore = 0;
 		rocketHealth = 100;
+
+		rotation = -15;
+		rotDirection = 1;
+
+		timer = 0;
+		rocketDirection = 1;
+		rocketReturn = false;
+
 		lastAsteroid = new Rectangle();
 
 		// default way to load texture
@@ -123,7 +138,7 @@ public class AstronautsGame extends ApplicationAdapter {
 		// create the camera and the SpriteBatch
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		viewportRocket = new FitViewport(25f, 12.5f);
+		viewportRocket = new FitViewport(80f, 40f); //25 12.5
 		viewportRocket.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
 
 		viewportAsteroid = new FitViewport(10f, 5f);
@@ -182,7 +197,7 @@ public class AstronautsGame extends ApplicationAdapter {
 		//CREATE ROCKET
 		EffectDescriptor = new ParticleEffectDescriptor(Gdx.files.internal("rocket.p"), textureAtlas);
 		peRocket = EffectDescriptor.createEffectInstance();
-		peRocket.getEmitters().get(0).setVisible(false);
+		peRocket.getEmitters().get(2).setVisible(false);
 
 		defaultRenderer.setBatch(talosBatch);
 
@@ -235,25 +250,70 @@ public class AstronautsGame extends ApplicationAdapter {
 		// tell the camera to update its matrices.
 		camera.update();
 
-		//Gdx.app.debug("MOVE", rocket.toString());
-
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
 		batch.setProjectionMatrix(camera.combined);
+
+		if(!gameEnd)
+		{
+			timer += Gdx.graphics.getDeltaTime();
+			if(timer >= 2.8)
+			{
+				if(rocket.y <= 20 - rocketImage.getHeight()*(float)0.2)
+					rocketDirection = -1;
+
+				float change = Gdx.graphics.getDeltaTime()*-(rocketImage.getHeight()*(float)0.8)*rocketDirection;
+				rocket.y += change;
+
+				if(rocket.y >= 20 + rocketImage.getHeight()*(float)0.2)
+				{
+					rocketDirection = 1;
+					timer = 0;
+					rocketReturn = true;
+				}
+			}
+			if(timer >= 1 && rocketReturn)
+			{
+				float change = Gdx.graphics.getDeltaTime()*-(rocketImage.getHeight()*(float)0.4);
+				rocket.y += change;
+				if(rocket.y <= 20)
+				{
+					timer = 0;
+					rocketReturn = false;
+				}
+			}
+		}
+
+
+		if(!gameEnd)
+		{
+			//ROCKET TRAVEL RENDER
+			talosBatch.setProjectionMatrix(viewportRocket.getCamera().projection);
+			talosBatch.begin();
+			peRocket.setPosition((float) (rocket.x/12.8 -40 +1.5),-16);
+			peRocket.update(Gdx.graphics.getDeltaTime());
+			peRocket.render(defaultRenderer);
+			talosBatch.end();
+		}
+
+
 		// begin a new batch and draw the rocket, astronauts, asteroids
-
-		//ROCKET TRAVEL RENDER
-		talosBatch.setProjectionMatrix(viewportRocket.getCamera().projection);
-		talosBatch.begin();
-		peRocket.setPosition((float) (rocket.x/40.96 - 12.5 + 1.5) , -16);  //12.8 -40 +1.5),-16);
-		peRocket.update(Gdx.graphics.getDeltaTime());
-		peRocket.render(defaultRenderer);
-		talosBatch.end();
-
 		batch.begin();
 		{ //add brackets just for intent
 			if(!gameEnd)
-				batch.draw(rocketImage, rocket.x, rocket.y);
+			{
+				//rotacija rakete nastavljena da se ujema z ucinkom potovanja rakete
+				float change = Gdx.graphics.getDeltaTime()*12*rotDirection;
+				if(rotation >= 15)
+					rotDirection = -1;
+				if(rotation <= -15)
+					rotDirection = 1;
+				rotation += change;
+				//batch.draw(rocketImage, rocket.x, rocket.y);
+				batch.draw(textureAtlas.getRegions().get(0), rocket.x, rocket.y, rocketImage.getWidth()/2, rocketImage.getHeight()/2,
+						rocketImage.getWidth(), rocketImage.getHeight(),1,1,rotation);
+			}
+
 
 			for (Rectangle asteroid : asteroids) {
 				batch.draw(asteroidImage, asteroid.x, asteroid.y);
@@ -266,6 +326,7 @@ public class AstronautsGame extends ApplicationAdapter {
 			font.draw(batch, "" + astronautsRescuedScore, Gdx.graphics.getWidth() - 50, Gdx.graphics.getHeight() - 20);
 			font.setColor(Color.GREEN);
 			font.draw(batch, "" + rocketHealth, 20, Gdx.graphics.getHeight() - 20);
+
 
 
 		}
