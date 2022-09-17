@@ -1,0 +1,1566 @@
+{
+"metaData": {
+	"scopeDefaults": [
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ],
+		[ 1, 1, 1, 1 ]
+	],
+	"previewCamPos": {},
+	"previewCamZoom": 1.9487171,
+	"bgImagePath": "",
+	"isGridVisible": true,
+	"bgImageIsInBack": true,
+	"bgImageSize": 10,
+	"gridSize": 1,
+	"particlePositionX": 0,
+	"particlePositionY": 0,
+	"resourcePaths": [
+		"C:/Users/Leonard/Desktop/talos vfx stuff/point glow.png"
+	]
+},
+"emitters": [
+	{
+		"name": "drag",
+		"sortPosition": 3,
+		"modules": [
+			{
+				"class": "EmitterModuleWrapper",
+				"id": 0,
+				"x": 62,
+				"y": 275,
+				"module": {
+					"data": {
+						"class": "EmitterModule",
+						"index": 0,
+						"delay": 3,
+						"duration": 2,
+						"rate": 5
+					}
+				}
+			},
+			{
+				"class": "ParticleModuleWrapper",
+				"id": 1,
+				"x": -323,
+				"y": -98,
+				"module": {
+					"data": {
+						"class": "ParticleModule",
+						"index": 1
+					}
+				}
+			},
+			{
+				"class": "EmConfigModuleWrapper",
+				"id": 3,
+				"x": -158,
+				"y": 54,
+				"module": {
+					"data": {
+						"class": "EmConfigModule",
+						"index": 3,
+						"additive": false,
+						"isBlendAdd": false,
+						"attached": false,
+						"continuous": true,
+						"aligned": false,
+						"immortal": false
+					}
+				}
+			},
+			{
+				"class": "StaticValueModuleWrapper",
+				"id": 5,
+				"x": -822,
+				"y": 198,
+				"module": {
+					"data": {
+						"class": "StaticValueModule",
+						"index": 5,
+						"value": 1
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 6,
+				"x": -1473,
+				"y": 2,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 6,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 30,
+						"highMax": 30
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 7,
+				"x": -1319,
+				"y": -441,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 7,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.1934285,
+								"y": 0.20674145
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						],
+						"lowMin": 239,
+						"lowMax": 299,
+						"highMin": 270,
+						"highMax": 270
+					}
+				},
+				"lowEquals": false,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "OffsetModuleWrapper",
+				"id": 8,
+				"x": -1197,
+				"y": 218,
+				"module": {
+					"data": {
+						"class": "OffsetModule",
+						"index": 8,
+						"points": [
+							{
+								"x": 0,
+								"y": 0
+							}
+						],
+						"low": {
+							"edge": true,
+							"shape": 1,
+							"side": 1,
+							"rect": {
+								"x": 0,
+								"y": 0,
+								"width": 5.802704,
+								"height": 11.389544
+							}
+						},
+						"high": {
+							"edge": true,
+							"shape": 2,
+							"side": 1,
+							"rect": {
+								"x": 0,
+								"y": 0,
+								"width": 7.4133177,
+								"height": 0.04407234
+							}
+						}
+					}
+				},
+				"lowScale": 15,
+				"highScale": 15,
+				"equals": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 9,
+				"x": -856,
+				"y": -865,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 9,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 8,
+						"highMax": 8
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "CurveModuleWrapper",
+				"id": 10,
+				"x": -1207,
+				"y": -247,
+				"module": {
+					"data": {
+						"class": "CurveModule",
+						"index": 10,
+						"points": [
+							{
+								"x": 0,
+								"y": 0.09731945
+							},
+							{
+								"x": 0.19926195,
+								"y": 0.09811815
+							},
+							{
+								"x": 0.42286763,
+								"y": 0
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						]
+					}
+				}
+			},
+			{
+				"class": "GradientColorModuleWrapper",
+				"id": 11,
+				"x": -1040,
+				"y": -73,
+				"module": {
+					"data": {
+						"class": "GradientColorModule",
+						"index": 11,
+						"points": [
+							{
+								"r": 0.78039217,
+								"g": 0.78039217,
+								"b": 0.78039217,
+								"pos": 0
+							}
+						]
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 13,
+				"x": -1008,
+				"y": -664,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 13,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.18674701,
+								"y": 0
+							}
+						],
+						"lowMin": 360,
+						"lowMax": 0,
+						"highMin": 360,
+						"highMax": 0
+					}
+				},
+				"lowEquals": false,
+				"lowMirror": false,
+				"highEquals": false,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 14,
+				"x": -416,
+				"y": 307,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 14,
+						"points": [
+							{
+								"x": 0,
+								"y": 0
+							},
+							{
+								"x": 0.2140042,
+								"y": 0
+							},
+							{
+								"x": 0.2140042,
+								"y": 1
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 70,
+						"highMax": 70
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "TextureModuleWrapper",
+				"id": 15,
+				"x": -673,
+				"y": 327,
+				"module": {
+					"data": {
+						"class": "TextureModule",
+						"index": 15,
+						"regionName": "fire"
+					}
+				},
+				"filePath": null,
+				"regionName": "fire"
+			}
+		],
+		"connections": [
+			{
+				"moduleFrom": 3,
+				"slotTo": 3
+			},
+			{
+				"moduleFrom": 5,
+				"moduleTo": 1,
+				"slotTo": 4
+			},
+			{
+				"moduleFrom": 6,
+				"moduleTo": 1,
+				"slotTo": 5
+			},
+			{
+				"moduleFrom": 7,
+				"moduleTo": 1,
+				"slotTo": 11
+			},
+			{
+				"moduleFrom": 8,
+				"moduleTo": 1,
+				"slotTo": 3
+			},
+			{
+				"moduleFrom": 9,
+				"moduleTo": 1,
+				"slotTo": 13
+			},
+			{
+				"moduleFrom": 10,
+				"moduleTo": 1,
+				"slotTo": 10
+			},
+			{
+				"moduleFrom": 11,
+				"moduleTo": 1,
+				"slotTo": 9
+			},
+			{
+				"moduleFrom": 14,
+				"slotTo": 2
+			},
+			{
+				"moduleFrom": 15,
+				"moduleTo": 1,
+				"slotTo": 2
+			}
+		]
+	},
+	{
+		"name": "burst",
+		"sortPosition": 1,
+		"modules": [
+			{
+				"class": "EmitterModuleWrapper",
+				"id": 0,
+				"x": -1450,
+				"y": -285,
+				"module": {
+					"data": {
+						"class": "EmitterModule",
+						"index": 0,
+						"delay": 3,
+						"duration": 2,
+						"rate": 2000
+					}
+				}
+			},
+			{
+				"class": "EmConfigModuleWrapper",
+				"id": 1,
+				"x": -1724,
+				"y": -538,
+				"module": {
+					"data": {
+						"class": "EmConfigModule",
+						"index": 1,
+						"additive": true,
+						"isBlendAdd": false,
+						"attached": false,
+						"continuous": true,
+						"aligned": false,
+						"immortal": false
+					}
+				}
+			},
+			{
+				"class": "ParticleModuleWrapper",
+				"id": 2,
+				"x": -2040,
+				"y": -602,
+				"module": {
+					"data": {
+						"class": "ParticleModule",
+						"index": 2
+					}
+				}
+			},
+			{
+				"class": "TextureModuleWrapper",
+				"id": 3,
+				"x": -2343,
+				"y": -153,
+				"module": {
+					"data": {
+						"class": "TextureModule",
+						"index": 3,
+						"regionName": "fire"
+					}
+				},
+				"filePath": null,
+				"regionName": "fire"
+			},
+			{
+				"class": "Vector2ModuleWrapper",
+				"id": 4,
+				"x": -2465,
+				"y": -258,
+				"module": {
+					"data": {
+						"class": "Vector2Module",
+						"index": 4,
+						"x": 0.3,
+						"y": -1.8
+					}
+				}
+			},
+			{
+				"class": "StaticValueModuleWrapper",
+				"id": 5,
+				"x": -2518,
+				"y": -369,
+				"module": {
+					"data": {
+						"class": "StaticValueModule",
+						"index": 5,
+						"value": 2
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 6,
+				"x": -3009,
+				"y": -498,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 6,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 10,
+						"highMax": 15
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": false,
+				"highMirror": false
+			},
+			{
+				"class": "CurveModuleWrapper",
+				"id": 7,
+				"x": -2998,
+				"y": -877,
+				"module": {
+					"data": {
+						"class": "CurveModule",
+						"index": 7,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.6049463,
+								"y": 0
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						]
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 8,
+				"x": -2732,
+				"y": -1005,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 8,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.20635737,
+								"y": 0
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						],
+						"lowMin": 205,
+						"lowMax": 340,
+						"highMin": 269,
+						"highMax": 269
+					}
+				},
+				"lowEquals": false,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 9,
+				"x": -2641,
+				"y": -1281,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 9,
+						"points": [
+							{
+								"x": 0,
+								"y": 0
+							},
+							{
+								"x": 0.006738779,
+								"y": 0.120940454
+							},
+							{
+								"x": 0.31870815,
+								"y": 0.992002
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 6,
+						"highMax": 6
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "GradientColorModuleWrapper",
+				"id": 10,
+				"x": -2998,
+				"y": -661,
+				"module": {
+					"data": {
+						"class": "GradientColorModule",
+						"index": 10,
+						"points": [
+							{
+								"r": 1,
+								"g": 0.26666668,
+								"b": 0.101960786,
+								"pos": 0
+							},
+							{
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"pos": 0.5902402
+							}
+						]
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 13,
+				"x": -1972,
+				"y": -166,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 13,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.08601784,
+								"y": 0
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 2000,
+						"highMax": 2000
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			}
+		],
+		"connections": [
+			{
+				"moduleFrom": 1,
+				"slotTo": 3
+			},
+			{
+				"moduleFrom": 3,
+				"moduleTo": 2,
+				"slotTo": 2
+			},
+			{
+				"moduleFrom": 4,
+				"moduleTo": 2,
+				"slotTo": 3
+			},
+			{
+				"moduleFrom": 5,
+				"moduleTo": 2,
+				"slotTo": 4
+			},
+			{
+				"moduleFrom": 6,
+				"moduleTo": 2,
+				"slotTo": 5
+			},
+			{
+				"moduleFrom": 7,
+				"moduleTo": 2,
+				"slotTo": 10
+			},
+			{
+				"moduleFrom": 8,
+				"moduleTo": 2,
+				"slotTo": 11
+			},
+			{
+				"moduleFrom": 9,
+				"moduleTo": 2,
+				"slotTo": 13
+			},
+			{
+				"moduleFrom": 10,
+				"moduleTo": 2,
+				"slotTo": 9
+			},
+			{
+				"moduleFrom": 13,
+				"slotTo": 2
+			}
+		]
+	},
+	{
+		"name": "rocket",
+		"sortPosition": 2,
+		"modules": [
+			{
+				"class": "EmitterModuleWrapper",
+				"id": 0,
+				"x": 214,
+				"y": 160,
+				"module": {
+					"data": {
+						"class": "EmitterModule",
+						"index": 0,
+						"delay": 0,
+						"duration": 5,
+						"rate": 1
+					}
+				}
+			},
+			{
+				"class": "EmConfigModuleWrapper",
+				"id": 1,
+				"x": -98,
+				"y": 200,
+				"module": {
+					"data": {
+						"class": "EmConfigModule",
+						"index": 1,
+						"additive": false,
+						"isBlendAdd": false,
+						"attached": false,
+						"continuous": true,
+						"aligned": true,
+						"immortal": false
+					}
+				}
+			},
+			{
+				"class": "ParticleModuleWrapper",
+				"id": 2,
+				"x": -103,
+				"y": -173,
+				"module": {
+					"data": {
+						"class": "ParticleModule",
+						"index": 2
+					}
+				}
+			},
+			{
+				"class": "TextureModuleWrapper",
+				"id": 3,
+				"x": -431,
+				"y": 247,
+				"module": {
+					"data": {
+						"class": "TextureModule",
+						"index": 3,
+						"regionName": "rocket64"
+					}
+				},
+				"filePath": "C:/Users/Leonard/Desktop/talos vfx stuff/rocket/rocket64.png",
+				"regionName": "rocket64"
+			},
+			{
+				"class": "StaticValueModuleWrapper",
+				"id": 4,
+				"x": -598,
+				"y": 120,
+				"module": {
+					"data": {
+						"class": "StaticValueModule",
+						"index": 4,
+						"value": 4
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 5,
+				"x": -1027,
+				"y": -462,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 5,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 3,
+						"highMax": 3
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 7,
+				"x": -997,
+				"y": -223,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 7,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.5032168,
+								"y": 0.0025890262
+							},
+							{
+								"x": 1,
+								"y": 1
+							}
+						],
+						"lowMin": 284,
+						"lowMax": 284,
+						"highMin": 254,
+						"highMax": 254
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "InputModuleWrapper",
+				"id": 8,
+				"x": -1341,
+				"y": -68,
+				"module": {
+					"data": {
+						"class": "InputModule",
+						"index": 8,
+						"scopeKey": 0
+					}
+				}
+			},
+			{
+				"class": "Vector2ModuleWrapper",
+				"id": 9,
+				"x": -386,
+				"y": -639,
+				"module": {
+					"data": {
+						"class": "Vector2Module",
+						"index": 9,
+						"x": 0,
+						"y": 0
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 10,
+				"x": -983,
+				"y": -672,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 10,
+						"points": [
+							{
+								"x": 0,
+								"y": 0.5
+							}
+						],
+						"lowMin": -2,
+						"lowMax": -2,
+						"highMin": 2,
+						"highMax": 2
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 11,
+				"x": -964,
+				"y": -930,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 11,
+						"points": [
+							{
+								"x": 0,
+								"y": 0.59858835
+							},
+							{
+								"x": 0.08095255,
+								"y": 0.5167047
+							},
+							{
+								"x": 0.5240718,
+								"y": 0.4985082
+							},
+							{
+								"x": 0.5839526,
+								"y": 0.39842802
+							},
+							{
+								"x": 0.7576082,
+								"y": 0.6895705
+							},
+							{
+								"x": 0.93725085,
+								"y": 0.6895705
+							},
+							{
+								"x": 1,
+								"y": 0.59858835
+							}
+						],
+						"lowMin": -2,
+						"lowMax": -2,
+						"highMin": 2,
+						"highMax": 2
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "InputModuleWrapper",
+				"id": 12,
+				"x": -1407,
+				"y": -517,
+				"module": {
+					"data": {
+						"class": "InputModule",
+						"index": 12,
+						"scopeKey": 0
+					}
+				}
+			},
+			{
+				"class": "InputModuleWrapper",
+				"id": 13,
+				"x": -1393,
+				"y": -779,
+				"module": {
+					"data": {
+						"class": "InputModule",
+						"index": 13,
+						"scopeKey": 0
+					}
+				}
+			}
+		],
+		"connections": [
+			{
+				"moduleFrom": 1,
+				"slotTo": 3
+			},
+			{
+				"moduleFrom": 3,
+				"moduleTo": 2,
+				"slotTo": 2
+			},
+			{
+				"moduleFrom": 4,
+				"moduleTo": 2,
+				"slotTo": 4
+			},
+			{
+				"moduleFrom": 7,
+				"moduleTo": 2,
+				"slotTo": 7
+			},
+			{
+				"moduleFrom": 5,
+				"moduleTo": 2,
+				"slotTo": 13
+			},
+			{
+				"moduleFrom": 8,
+				"moduleTo": 7
+			},
+			{
+				"moduleFrom": 9,
+				"moduleTo": 2,
+				"slotTo": 14
+			},
+			{
+				"moduleFrom": 10,
+				"moduleTo": 9
+			},
+			{
+				"moduleFrom": 11,
+				"moduleTo": 9,
+				"slotTo": 1
+			},
+			{
+				"moduleFrom": 12,
+				"moduleTo": 10
+			},
+			{
+				"moduleFrom": 13,
+				"moduleTo": 11
+			}
+		]
+	},
+	{
+		"name": "jet",
+		"modules": [
+			{
+				"class": "EmitterModuleWrapper",
+				"id": 0,
+				"x": -118,
+				"y": 94,
+				"module": {
+					"data": {
+						"class": "EmitterModule",
+						"index": 0,
+						"delay": 0,
+						"duration": 5,
+						"rate": 300
+					}
+				}
+			},
+			{
+				"class": "EmConfigModuleWrapper",
+				"id": 1,
+				"x": -380,
+				"y": -131,
+				"module": {
+					"data": {
+						"class": "EmConfigModule",
+						"index": 1,
+						"additive": true,
+						"isBlendAdd": false,
+						"attached": false,
+						"continuous": true,
+						"aligned": false,
+						"immortal": false
+					}
+				}
+			},
+			{
+				"class": "ParticleModuleWrapper",
+				"id": 2,
+				"x": -627,
+				"y": -251,
+				"module": {
+					"data": {
+						"class": "ParticleModule",
+						"index": 2
+					}
+				}
+			},
+			{
+				"class": "TextureModuleWrapper",
+				"id": 3,
+				"x": -890,
+				"y": 134,
+				"module": {
+					"data": {
+						"class": "TextureModule",
+						"index": 3,
+						"regionName": "fire"
+					}
+				},
+				"filePath": null,
+				"regionName": "fire"
+			},
+			{
+				"class": "StaticValueModuleWrapper",
+				"id": 4,
+				"x": -1177,
+				"y": -35,
+				"module": {
+					"data": {
+						"class": "StaticValueModule",
+						"index": 4,
+						"value": 1
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 5,
+				"x": -1732,
+				"y": -179,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 5,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.3461833,
+								"y": 0
+							}
+						],
+						"lowMin": 5,
+						"lowMax": 5,
+						"highMin": 30,
+						"highMax": 30
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 6,
+				"x": -1543,
+				"y": -603,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 6,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.49631545,
+								"y": 0
+							},
+							{
+								"x": 1,
+								"y": 1
+							}
+						],
+						"lowMin": 270,
+						"lowMax": 283,
+						"highMin": 255,
+						"highMax": 269
+					}
+				},
+				"lowEquals": false,
+				"lowMirror": false,
+				"highEquals": false,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 9,
+				"x": -640,
+				"y": 238,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 9,
+						"points": [
+							{
+								"x": 0,
+								"y": 0
+							},
+							{
+								"x": 0.5085966,
+								"y": 1
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						],
+						"lowMin": 200,
+						"lowMax": 200,
+						"highMin": 500,
+						"highMax": 500
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "CurveModuleWrapper",
+				"id": 10,
+				"x": -1407,
+				"y": -392,
+				"module": {
+					"data": {
+						"class": "CurveModule",
+						"index": 10,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 0.25844947,
+								"y": 0
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						]
+					}
+				}
+			},
+			{
+				"class": "GradientColorModuleWrapper",
+				"id": 11,
+				"x": -1820,
+				"y": -315,
+				"module": {
+					"data": {
+						"class": "GradientColorModule",
+						"index": 11,
+						"points": [
+							{
+								"r": 1,
+								"g": 1,
+								"b": 1,
+								"pos": 0.0024559652
+							},
+							{
+								"r": 0.101960786,
+								"g": 0.30588236,
+								"b": 1,
+								"pos": 0.028338978
+							},
+							{
+								"r": 1,
+								"g": 0.3019608,
+								"b": 0,
+								"pos": 0.089394294
+							},
+							{
+								"r": 0.85393214,
+								"g": 0.25785404,
+								"b": 0,
+								"pos": 0.15451936
+							},
+							{
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"pos": 0.44351354
+							},
+							{
+								"r": 0.3019608,
+								"g": 0.3019608,
+								"b": 0.3019608,
+								"pos": 1
+							}
+						]
+					}
+				}
+			},
+			{
+				"class": "Vector2ModuleWrapper",
+				"id": 12,
+				"x": -1268,
+				"y": 135,
+				"module": {
+					"data": {
+						"class": "Vector2Module",
+						"index": 12,
+						"x": 0,
+						"y": -1.3
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 14,
+				"x": -1773,
+				"y": 302,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 14,
+						"points": [
+							{
+								"x": 0,
+								"y": 0
+							},
+							{
+								"x": 0.49939027,
+								"y": 1
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						],
+						"lowMin": -0.4,
+						"lowMax": -0.4,
+						"highMin": 0.4,
+						"highMax": 0.4
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "InputModuleWrapper",
+				"id": 15,
+				"x": -2175,
+				"y": 464,
+				"module": {
+					"data": {
+						"class": "InputModule",
+						"index": 15,
+						"scopeKey": 0
+					}
+				}
+			},
+			{
+				"class": "InputModuleWrapper",
+				"id": 16,
+				"x": -1930,
+				"y": -435,
+				"module": {
+					"data": {
+						"class": "InputModule",
+						"index": 16,
+						"scopeKey": 0
+					}
+				}
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 17,
+				"x": -1342,
+				"y": -1009,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 17,
+						"points": [
+							{
+								"x": 0,
+								"y": 0.40638247
+							},
+							{
+								"x": 1,
+								"y": 1
+							}
+						],
+						"lowMin": 0,
+						"lowMax": 0,
+						"highMin": 2,
+						"highMax": 2
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 18,
+				"x": -1470,
+				"y": -814,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 18,
+						"points": [
+							{
+								"x": 0,
+								"y": 1
+							},
+							{
+								"x": 1,
+								"y": 0
+							}
+						],
+						"lowMin": 360,
+						"lowMax": 360,
+						"highMin": 1,
+						"highMax": 1
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "DynamicRangeModuleWrapper",
+				"id": 19,
+				"x": -1792,
+				"y": 75,
+				"module": {
+					"data": {
+						"class": "DynamicRangeModule",
+						"index": 19,
+						"points": [
+							{
+								"x": 0,
+								"y": 0.5959492
+							},
+							{
+								"x": 0.071857065,
+								"y": 0.486771
+							},
+							{
+								"x": 0.51867485,
+								"y": 0.4988801
+							},
+							{
+								"x": 0.5779145,
+								"y": 0.4088726
+							},
+							{
+								"x": 0.75243145,
+								"y": 0.703222
+							},
+							{
+								"x": 0.9222711,
+								"y": 0.7013455
+							},
+							{
+								"x": 1,
+								"y": 0.60504764
+							}
+						],
+						"lowMin": -3.3,
+						"lowMax": -3.3,
+						"highMin": 1.3,
+						"highMax": 1.3
+					}
+				},
+				"lowEquals": true,
+				"lowMirror": false,
+				"highEquals": true,
+				"highMirror": false
+			},
+			{
+				"class": "InputModuleWrapper",
+				"id": 20,
+				"x": -2220,
+				"y": 247,
+				"module": {
+					"data": {
+						"class": "InputModule",
+						"index": 20,
+						"scopeKey": 0
+					}
+				}
+			}
+		],
+		"connections": [
+			{
+				"moduleFrom": 1,
+				"slotTo": 3
+			},
+			{
+				"moduleFrom": 3,
+				"moduleTo": 2,
+				"slotTo": 2
+			},
+			{
+				"moduleFrom": 4,
+				"moduleTo": 2,
+				"slotTo": 4
+			},
+			{
+				"moduleFrom": 5,
+				"moduleTo": 2,
+				"slotTo": 5
+			},
+			{
+				"moduleFrom": 6,
+				"moduleTo": 2,
+				"slotTo": 11
+			},
+			{
+				"moduleFrom": 10,
+				"moduleTo": 2,
+				"slotTo": 10
+			},
+			{
+				"moduleFrom": 11,
+				"moduleTo": 2,
+				"slotTo": 9
+			},
+			{
+				"moduleFrom": 12,
+				"moduleTo": 2,
+				"slotTo": 3
+			},
+			{
+				"moduleFrom": 14,
+				"moduleTo": 12
+			},
+			{
+				"moduleFrom": 15,
+				"moduleTo": 14
+			},
+			{
+				"moduleFrom": 17,
+				"moduleTo": 2,
+				"slotTo": 13
+			},
+			{
+				"moduleFrom": 18,
+				"moduleTo": 2,
+				"slotTo": 7
+			},
+			{
+				"moduleFrom": 16,
+				"moduleTo": 6
+			},
+			{
+				"moduleFrom": 19,
+				"moduleTo": 12,
+				"slotTo": 1
+			},
+			{
+				"moduleFrom": 20,
+				"moduleTo": 19
+			}
+		]
+	}
+]
+}
