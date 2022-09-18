@@ -70,7 +70,6 @@ public class AstronautsGame extends ApplicationAdapter {
 
 	private float rotation;
 	private float rotDirection;
-
 	private float timer;
 	private float rocketDirection;
 	private boolean rocketReturn;
@@ -120,9 +119,9 @@ public class AstronautsGame extends ApplicationAdapter {
 		astronautsRescuedScore = 0;
 		rocketHealth = 100;
 
+		//SPREMENLJIVKE, KI JIH POTREBUJEMO ZA PREMIKANJE SLIKE RAKETE
 		rotation = -15;
 		rotDirection = 1;
-
 		timer = 0;
 		rocketDirection = 1;
 		rocketReturn = false;
@@ -138,7 +137,10 @@ public class AstronautsGame extends ApplicationAdapter {
 		// create the camera and the SpriteBatch
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		viewportRocket = new FitViewport(80f, 40f); //25 12.5
+
+		//USTVARIMO VIEWPORTE ZA VSAK UČINEK
+		//LAHKO PONOVNO UPORABIMO ENAKE VIEWPORTE
+		viewportRocket = new FitViewport(80f, 40f);
 		viewportRocket.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
 
 		viewportAsteroid = new FitViewport(10f, 5f);
@@ -167,6 +169,7 @@ public class AstronautsGame extends ApplicationAdapter {
 
 		defaultRenderer = new SpriteBatchParticleRenderer();
 
+		//USTVARIMO TEXTURE ATLAS
 		TextureRegion textureRegion1 = new TextureRegion(new Texture(Gdx.files.internal("fire.png")));
 		TextureRegion textureRegion2 = new TextureRegion(new Texture(Gdx.files.internal("rocket64.png")));
 		TextureRegion textureRegion3 = new TextureRegion(new Texture(Gdx.files.internal("point glow.png")));
@@ -197,6 +200,7 @@ public class AstronautsGame extends ApplicationAdapter {
 		//CREATE ROCKET
 		EffectDescriptor = new ParticleEffectDescriptor(Gdx.files.internal("rocket.p"), textureAtlas);
 		peRocket = EffectDescriptor.createEffectInstance();
+		//Izklopimo oddajnik za sliko rakete, saj ne deluje v povezavi z našo igro
 		peRocket.getEmitters().get(2).setVisible(false);
 
 		defaultRenderer.setBatch(talosBatch);
@@ -233,6 +237,9 @@ public class AstronautsGame extends ApplicationAdapter {
 		//CREATE ASTEROIDS
 		EffectDescriptor = new ParticleEffectDescriptor(Gdx.files.internal("asteroid_travel.p"), textureAtlas);
 		peAsteroid = EffectDescriptor.createEffectInstance();
+		//Izklopimo oddajnik za sliko asteroida in majhnega asteroida
+		//Majhen asteroid moti vidljivost igre
+		//Slika asteroida pa ne deluje z našo igro
 		peAsteroid.getEmitters().get(2).setVisible(false);
 		peAsteroid.getEmitters().get(4).setVisible(false);
 		peAsteroids.add(peAsteroid);
@@ -256,41 +263,10 @@ public class AstronautsGame extends ApplicationAdapter {
 
 		if(!gameEnd)
 		{
-			timer += Gdx.graphics.getDeltaTime();
-			if(timer >= 2.8)
-			{
-				if(rocket.y <= 20 - rocketImage.getHeight()*(float)0.2)
-					rocketDirection = -1;
-
-				float change = Gdx.graphics.getDeltaTime()*-(rocketImage.getHeight()*(float)0.8)*rocketDirection;
-				rocket.y += change;
-
-				if(rocket.y >= 20 + rocketImage.getHeight()*(float)0.2)
-				{
-					rocketDirection = 1;
-					timer = 0;
-					rocketReturn = true;
-				}
-			}
-			if(timer >= 1 && rocketReturn)
-			{
-				float change = Gdx.graphics.getDeltaTime()*-(rocketImage.getHeight()*(float)0.4);
-				rocket.y += change;
-				if(rocket.y <= 20)
-				{
-					timer = 0;
-					rocketReturn = false;
-				}
-			}
-		}
-
-
-		if(!gameEnd)
-		{
 			//ROCKET TRAVEL RENDER
 			talosBatch.setProjectionMatrix(viewportRocket.getCamera().projection);
 			talosBatch.begin();
-			peRocket.setPosition((float) (rocket.x/12.8 -40 +1.5),-16);
+			peRocket.setPosition((float) (rocket.x/12.8 -38.5),-16);
 			peRocket.update(Gdx.graphics.getDeltaTime());
 			peRocket.render(defaultRenderer);
 			talosBatch.end();
@@ -302,13 +278,43 @@ public class AstronautsGame extends ApplicationAdapter {
 		{ //add brackets just for intent
 			if(!gameEnd)
 			{
-				//rotacija rakete nastavljena da se ujema z ucinkom potovanja rakete
+				//premikanje rakete gor in dol usklajeno z učinkom potovanja
+				//časovni zamiki so nastavljeni glede na časovne zamike v samem učinku, kadar spremenimo učinek v Talos VFX je potrebno tudi spremeniti
+				//vrednosti tukaj
+				timer += Gdx.graphics.getDeltaTime();
+				if(timer >= 2.8)
+				{
+					if(rocket.y <= 20 - rocketImage.getHeight()*(float)0.2)
+						rocketDirection = -1;
+
+					float change = Gdx.graphics.getDeltaTime()*-(rocketImage.getHeight()*(float)0.8)*rocketDirection;
+					rocket.y += change;
+
+					if(rocket.y >= 20 + rocketImage.getHeight()*(float)0.2)
+					{
+						rocketDirection = 1;
+						timer = 0;
+						rocketReturn = true;
+					}
+				}
+				if(timer >= 1 && rocketReturn)
+				{
+					float change = Gdx.graphics.getDeltaTime()*-(rocketImage.getHeight()*(float)0.4);
+					rocket.y += change;
+					if(rocket.y <= 20)
+					{
+						timer = 0;
+						rocketReturn = false;
+					}
+				}
+				//nihanje rakete nastavljeno da se ujema z ucinkom potovanja rakete
 				float change = Gdx.graphics.getDeltaTime()*12*rotDirection;
 				if(rotation >= 15)
 					rotDirection = -1;
 				if(rotation <= -15)
 					rotDirection = 1;
 				rotation += change;
+
 				//batch.draw(rocketImage, rocket.x, rocket.y);
 				batch.draw(textureAtlas.getRegions().get(0), rocket.x, rocket.y, rocketImage.getWidth()/2, rocketImage.getHeight()/2,
 						rocketImage.getWidth(), rocketImage.getHeight(),1,1,rotation);
@@ -355,6 +361,7 @@ public class AstronautsGame extends ApplicationAdapter {
 			for (Iterator<Rectangle> iter = asteroids.iterator(); iter.hasNext(); ) {
 				Rectangle asteroid = iter.next();
 				asteroid.y -= SPEED_ASTEROID * Gdx.graphics.getDeltaTime();
+
 				//UPDATE ASTEROIDS POSITION
 				peAsteroids.get(asteroids.indexOf(asteroid, true)).setPosition((float)(asteroid.x/102.4 -4.5), (float)(asteroid.y/96 -2.2));
 
@@ -365,6 +372,7 @@ public class AstronautsGame extends ApplicationAdapter {
 				}
 				if (asteroid.overlaps(rocket)) {
 					astronautSound.play();
+					//označimo asteroid, z katerim smo nazadnje imeli stik
 					lastAsteroid = asteroid;
 					rocketHealth--;
 				}
@@ -403,13 +411,14 @@ public class AstronautsGame extends ApplicationAdapter {
 					//CREATE ROCKET EXPLOSION
 					EffectDescriptor = new ParticleEffectDescriptor(Gdx.files.internal("rocket_explosion.p"), textureAtlas);
 					peRocketExplosion = EffectDescriptor.createEffectInstance();
-					peRocketExplosion.setPosition((float) (rocket.x/12.8 -40 +1.5),-16);
+					peRocketExplosion.setPosition((float) (rocket.x/12.8 -38.5),-16);
 
 					//CREATE ASTEROID EXPLOSION
 					EffectDescriptor = new ParticleEffectDescriptor(Gdx.files.internal("asteroid.p"), textureAtlas);
 					peAsteroidExplosion = EffectDescriptor.createEffectInstance();
 					peAsteroidExplosion.setPosition((float)(lastAsteroid.x/102.4 -4.5), (float)(lastAsteroid.y/96 -2.2));
 
+					//ODSTRANIMO ZADNJI ASTEROID IN GA ZAMENJAMO Z EKSPLOZIJO
 					for (Iterator<Rectangle> iter = asteroids.iterator(); iter.hasNext(); )
 					{
 						Rectangle asteroid = iter.next();
@@ -461,9 +470,6 @@ public class AstronautsGame extends ApplicationAdapter {
 			peNaut.render(defaultRenderer);
 		}
 		talosBatch.end();
-
-
-
 
 	}
 
