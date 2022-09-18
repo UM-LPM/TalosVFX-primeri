@@ -4,7 +4,36 @@ Primeri so izdelani v Talos VFX verziji 1.4.1.
 Talos VFX projektne datoteke se nahajajo v mapi "Primeri" uporabljene slike pa v mapi "core/assets".
 
 ## Učinek vključimo v igro na naslednji način:
-### 1. Ustvarimo primeren viewport. 
+
+### 1. Vključimo Talos VFX v naš projekt
+Dodamo Talos VFX v naš gradle.
+```
+project(":desktop") {
+    apply plugin: "java"
+    dependencies {
+        compile project(":core")
+        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        implementation "com.talosvfx:talos-libgdx:1.4.0"  
+    }
+}
+```
+
+Mi smo še imeli problem, da je Talos VFX potreboval jitpack.io tako, da smo na naslednji način še tisto vključili v gradle.
+
+```
+repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        google()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+        maven { url "https://jitpack.io" }
+    }
+```
+
+### 2. Ustvarimo primeren viewport. 
 Temu se lahko izognemo, če upoštevamo velikosti slike med izdelovanjem samega učinka v Talos VFX, vendar je včasih lažje samo kasneje ustvariti primeren viewport za vsak učinek.
 ```
 viewportRocket = new FitViewport(80f, 40f);
@@ -12,7 +41,7 @@ viewportRocket.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
 ```
 Vrednosti 80f in 40f je potrebno primerno nastaviti glede na velikost učinka.
 
-### 2. Definiramo batch in renderer
+### 3. Definiramo batch in renderer
 Talos VFX uporablja PolygonSpriteBatch in SpriteBatchParticleRenderer.
 
 ```
@@ -21,7 +50,7 @@ defaultRenderer = new SpriteBatchParticleRenderer();
 defaultRenderer.setBatch(talosBatch);
 ```
 
-### 3. Ustvarimo texture atlas
+### 4. Ustvarimo texture atlas
 Pomembno je da se imena regij ujemajo z imeni slik uporabljenih v Talos VFX. Prikazan način ustvarjanja atlasa, ki ga je mogoče uporabiti.
 ```
 TextureRegion textureRegion1 = new TextureRegion(new Texture(Gdx.files.internal("fire.png")));
@@ -48,14 +77,14 @@ textureAtlas.addRegion("rocket64_left", textureRegion9);
 textureAtlas.addRegion("rocket64_right", textureRegion10);
 textureAtlas.addRegion("asteroid72", textureRegion11);
 ```
-### 4. Ustvarimo particle effect
+### 5. Ustvarimo particle effect
 Tukaj samo pripravimo učinek in še ga ne upodobimo.
 ```
 EffectDescriptor = new ParticleEffectDescriptor(Gdx.files.internal("rocket.p"), textureAtlas);
 ParticleEffectInstance peRocket = EffectDescriptor.createEffectInstance();
 ```
 
-### 5. Upodobimo učinek
+### 6. Upodobimo učinek
 Batch nastavimo, da deluje s primernim viewportom. Nato v Batch-u primerno nastavimo pozicijo učinka, ga posodobimo z funkcijo update() in upodobimo z funkcijo render(). 
 ```
 talosBatch.setProjectionMatrix(viewportRocket.getCamera().projection);
@@ -65,6 +94,8 @@ peRocket.update(Gdx.graphics.getDeltaTime());
 peRocket.render(defaultRenderer);
 talosBatch.end();
 ```
+
+### Usklajevanje koordinat različnih kamer
 Problem nastane pri usklajevanju dveh različno nastavljenih kamer (pri nas med "camera" in drugimi viewporti). Usklajevanje koordinat kamer poteka tako:
 Vzamemo velikost prve kamere (pri nas je bila širina 1024) in velikost druge kamere (na primer viewportRocket ima širino 80f) in ju delimo med seboj (1024/80 = 12.8).
 To število predstavlja razmerje velikosti med kamerama. 
