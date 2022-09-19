@@ -106,3 +106,66 @@ peRocket.setPosition((float) (rocket.x/12.8 -40 +1.5),-16);
 ``` 
 V našem primeru še je potrebno odšteti polovico velikosti druge kamere (-40) saj so koordinate druge kamere od +40 do -40 (kar je skupaj 80). 
 Nato še je včasih potrebno malo ročno nastavljati vrednosti, da se čisto ujemajo (mi smo prišteli 1.5).
+
+## Ustvarjanje učinka v Talos VFX
+
+### 1. Ustvarimo vozlišče Emitter
+Z desnim klikom na desni prostor v vmesniku izberemo Emitter vozlišče.
+![image](https://user-images.githubusercontent.com/56390707/191081698-36a725b3-5edc-4a71-896d-f60a8d9ea49b.png)
+
+Kliknemo na krogec zraven besede config, da se nam ustvari vozlišče Config, ki ima dodatne lastnosti od Emitterja.
+![image](https://user-images.githubusercontent.com/56390707/191081912-230356d2-8ab2-4d42-87f6-7f475a2d1744.png)
+
+### 2. Ustvarimo vozlišče Particle
+
+Na enak način kot za Emitter vozlišče, še ustvarimo vozlišče Particle, ki vsebuje lastnosti delcev, ki jih Emitter proizvaja.
+
+![image](https://user-images.githubusercontent.com/56390707/191082184-02815ac9-d493-4349-9b61-fe8adf42eb15.png)
+
+To je najbolj pomembno vozlišče, ki definira kako izgledajo delci tega Emiterja. Če klikamo na krogece zraven imen lastnosti se nam ustvarijo primerna vozlišča, ki opisujejo lastnost na katero so povezani.
+
+![image](https://user-images.githubusercontent.com/56390707/191082918-2b174679-0900-440e-b067-54e9af5267f7.png)
+
+Bele krogece lahko z miško povlečemo, da spremenimo povezave vozlišč, tako lahko katerikoli vozlišči povežemo med seboj, vendar pravilno delovanje ni zagotovljeno.
+
+![image](https://user-images.githubusercontent.com/56390707/191083549-025f8069-3da3-4f77-9574-f35c36888088.png)
+
+### 3. Ustvarimo več Emitterjev
+
+En Emitter ima lahko samo eno Emitter in Particle vozlišče. Dodatne Emitterje pa ustvarimo tako, da levo spodaj kliknemo na gumb označen na spodnji sliki.
+
+![image](https://user-images.githubusercontent.com/56390707/191084204-219f4461-8d9a-4758-8adc-7cf9fa021d6e.png)
+
+V tem novem Emitterju ponovimo prva dva koraka.
+
+### 4. Izvozimo učinek kot .p datoteko
+
+V menuju File kliknemo na gumb Export As in shranimo .p datoteko, ki jo lahko uporabljamo v libGDX projektih.
+
+![image](https://user-images.githubusercontent.com/56390707/191084412-1980e2b2-4716-46dc-a774-1227859a7c8c.png)
+
+## Dodatne informacije
+
+### Smer potovanja
+
+Lastnost Velocity je direktno povezana z lastnostjo Angle. Če želimo spremeniti smer v katero potujejo delci, moramo spremeniti Angle.
+
+### Random Range
+
+Če želimo naključno vrednost je potrebno ustvariti Random Range vozlišče in klikniti označen gumb na sliki.
+
+![image](https://user-images.githubusercontent.com/56390707/191086450-1cd51680-11a6-4a3c-af3b-eb8addbb11b8.png)
+
+Na izključi povezavo med levo in desno vrednostjo tako, da vozlišče proizvaja naključne vrednosti v določenem razponu.
+
+V Dynamic Random Range vozlišču pa zgornji dve vrednosti definirata razpon naključnih števil vrha desnega grafa, spodnji vrednosti pa razpon naključnih števil podna grafa.
+
+![image](https://user-images.githubusercontent.com/56390707/191087094-828c8a49-8290-47c5-b7a3-4055c8ff5cf9.png)
+
+### Trajanje Emitterja
+
+Če želimo vozlišče povezati s trajanjem Emitterja namesto življenjsko dobo delca potem ustvarimo vozlišče alpha in izberemo Emitter.Alpha - Duration.
+
+![image](https://user-images.githubusercontent.com/56390707/191088966-9afb3a0c-cb3f-4699-9e6c-a744cc17e39c.png)
+
+
