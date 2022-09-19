@@ -150,13 +150,20 @@ V menuju File kliknemo na gumb Export As in shranimo .p datoteko, ki jo lahko up
 
 Lastnost Velocity je direktno povezana z lastnostjo Angle. Če želimo spremeniti smer v katero potujejo delci, moramo spremeniti Angle.
 
+### Vozlišče Color
+
+Z levim klikom ustvarjamo različne točke na barvnem grafu. Z desnim klikom na barvo se nam odpre menu za izbiranje barve.  Delec spreminja barvo čez čas po tem grafu.
+
+![image](https://user-images.githubusercontent.com/56390707/191089650-302df573-b5a7-4b56-a5e3-4c2ffff856f4.png)
+
+
 ### Random Range
 
 Če želimo naključno vrednost je potrebno ustvariti Random Range vozlišče in klikniti označen gumb na sliki.
 
 ![image](https://user-images.githubusercontent.com/56390707/191086450-1cd51680-11a6-4a3c-af3b-eb8addbb11b8.png)
 
-Na izključi povezavo med levo in desno vrednostjo tako, da vozlišče proizvaja naključne vrednosti v določenem razponu.
+Ta izključi povezavo med levo in desno vrednostjo in lahko vnesemo drugačni števili. To vozlišče nato proizvaja naključne vrednosti v nastavljenem razponu.
 
 V Dynamic Random Range vozlišču pa zgornji dve vrednosti definirata razpon naključnih števil vrha desnega grafa, spodnji vrednosti pa razpon naključnih števil podna grafa.
 
