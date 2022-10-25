@@ -1,3 +1,5 @@
+Diplomsko delo: https://dk.um.si/IzpisGradiva.php?id=82908&lang=slv
+
 # Primeri učinkov na osnovi delcev izdelanih v Talos VFX
 
 Primeri so izdelani v Talos VFX verziji 1.4.1.
